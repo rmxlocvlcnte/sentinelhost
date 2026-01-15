@@ -12,7 +12,7 @@ O projeto foi idealizado com uma mentalidade virada para **Blue Teaming / SOC**,
 
 # Fluxo de Execução
 
-´´´
+```
 main()
 ├── init.json()
 ├── analise_rede   &
@@ -20,9 +20,9 @@ main()
 ├── saude_sis      &
 ├── wait
 ├── close_json
-´´´
+```
 
-Cada módulo é executado de forma independente e escreve no mesmo arquivo JSON utilizando **file locking** ´´´flock´´´ para evitar corrupção de dados
+Cada módulo é executado de forma independente e escreve no mesmo arquivo JSON utilizando **file locking** ```flock``` para evitar corrupção de dados
 
 # Componentes do Código
 
@@ -33,7 +33,7 @@ Cada módulo é executado de forma independente e escreve no mesmo arquivo JSON 
 
 
 ## Análise de Logs
-- Eventos Críticos atráves de ´´´journalctl´´´
+- Eventos Críticos atráves de ```journalctl```
 - Tentativas de login falhas
 - Indícios de força bruta (auth.log)
 
@@ -49,14 +49,14 @@ O sentinelhost gera:
 - Relatório JSON estruturado para automação
 - Log TXT para leitura humana
 
-> Vale notar que a estrutura gerada em JSON ainda é manual, a mudar para ´´´jq´´´ no futuro
+> Vale notar que a estrutura gerada em JSON ainda é manual, a mudar para ```jq``` no futuro
 
 # Limitações atuais
 - JSON feito manualmente, risco de escape
 - Regex ainda é simples para portas
 
 # A fazer
-- Normalizar com ´´´jq´´´
+- Normalizar com ```jq```
 - Classificação de riscos
 - Detecção de Persistência
 - Integrar com SIEMs 
