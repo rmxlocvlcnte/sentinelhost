@@ -7,7 +7,7 @@ Esse documento descreve o que o SentinelHost detecta, como detecta e quais são 
 - Serviços associados ao ID do Processo (PID)
 
 ## Técnica de Análise
-´´´ss -tulnp´´´
+```ss -tulnp```
 Filtro inicial por portas reconhecidas como sensíveis **(A MUDAR)**
 - Porta 21 (FTP)
 - Porta 22 (SSH)
@@ -27,17 +27,18 @@ Filtro inicial por portas reconhecidas como sensíveis **(A MUDAR)**
 - Falhas recorrentes de LogIn
 
 ## Como é feita a análise
-´´´journalctl -p err..alert
+```journalctl -p err..alert
 grep -Ei 'failed|denied|unauthorized'
-´´´
+```
 E de maneira adicional
-´´´grep 'failed password' /var/log/auth.log
+```grep 'failed password' /var/log/auth.log```
 
 > Logs podem estar rotacionados, a melhorar.
 
 # Recursos em Abuso
 
-Processos em alto consumo de memória são analisados com ´´´ps aux --sort=-%mem | head´´´
+Processos em alto consumo de memória são analisados com 
+```ps aux --sort=-%mem | head```
 
 > NÃO identifica malwares fileless e NÃO analisa comportamento a longo prazo
 
