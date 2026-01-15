@@ -89,7 +89,7 @@ json_block "logins_falhos" "$(escape_json "$logins_falhos")"
 
 if [ -f /var/log/auth.log ]; then
 	local forca_bruta
-	forca_bruta="$(grep -i 'senha errada' /var/log/auth.log \
+	forca_bruta="$(grep -i 'failed password' /var/log/auth.log \
 	| awk '{print $(NF-3)}' \
 	| sort | uniq -c | sort -nr | head || echo 'N/A')"
 
